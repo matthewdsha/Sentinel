@@ -1,4 +1,4 @@
-package com.sentinel.order_service.event;
+package com.sentinel.inventory_service.event;
 
 import java.time.Instant;
 import java.util.List;

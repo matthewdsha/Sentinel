@@ -1,8 +1,11 @@
+server:
+  port: 8081
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/orders
-    username: ${ORDERS_USERNAME}
-    password: ${ORDERS_PASSWORD}
+    url: jdbc:postgresql://localhost:5434/inventory
+    username: ${INVENTORY_USERNAME}
+    password: ${INVENTORY_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -12,11 +15,11 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: orderCreated:com.sentinel.order_service.event.OrderCreatedEvent
+        spring.json.type.mapping: inventoryReserved:com.sentinel.inventory_service.event.InventoryReservedEvent,inventoryRejected:com.sentinel.inventory_service.event.InventoryRejectedEvent
     consumer:
-      group-id: order-service
+      group-id: inventory-service
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
-        spring.json.type.mapping: inventoryReserved:com.sentinel.order_service.event.InventoryReservedEvent,inventoryRejected:com.sentinel.order_service.event.InventoryRejectedEvent
+        spring.json.type.mapping: orderCreated:com.sentinel.inventory_service.event.OrderCreatedEvent

@@ -3,6 +3,8 @@ package com.sentinel.order_service.entity;
 import java.time.Instant;
 import java.util.List;
 import java.util.ArrayList;
+
+import com.sentinel.order_service.event.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +24,8 @@ public class Order {
     private Long customerId;
 
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
     @CreationTimestamp
     @Column(name="created_at", nullable = false, updatable = false)
