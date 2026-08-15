@@ -2,5 +2,6 @@ package com.sentinel.order_service.event;
 
 public enum RejectionReason {
     INSUFFICIENT_STOCK,
-    SKU_NOT_FOUND
+    SKU_NOT_FOUND,
+    SYSTEM_ERROR
 }

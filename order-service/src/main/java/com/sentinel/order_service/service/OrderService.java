@@ -19,9 +19,9 @@ import java.util.List;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
-    private final KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    public OrderService(OrderRepository orderRepository, KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate) {
+    public OrderService(OrderRepository orderRepository, KafkaTemplate<String, Object> kafkaTemplate) {
         this.orderRepository = orderRepository;
         this.kafkaTemplate = kafkaTemplate;
     }

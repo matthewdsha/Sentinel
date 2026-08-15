@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: gateway
   cloud:
     gateway:
       server:
@@ -16,3 +18,12 @@ spring:
               uri: http://notification-service:8080
               predicates:
                 - Path=/notifications/**
+
+logging:
+  structured:
+    format:
+      console: ecs
+    ecs:
+      service:
+        name: ${spring.application.name}
+        environment: ${spring.profiles.active:default}

@@ -78,4 +78,22 @@ public class InventoryService {
             kafkaTemplate.send("inventory-reserved", event.orderId().toString(), reservedEvent);
         }
     }
+
+    @KafkaListener(topics = "order-created.DLT", groupId = "inventory-service-dlt")
+    public void consumeOrderCreatedDeadLetter(OrderCreatedEvent event) {
+        if (event.items().isEmpty()) {
+            return;
+        }
+
+        OrderCreatedEvent.OrderItemInfo item = event.items().getFirst();
+
+        InventoryRejectedEvent rejectedEvent = new InventoryRejectedEvent(
+          event.orderId(),
+          item.sku(),
+          RejectionReason.SYSTEM_ERROR,
+          Instant.now()
+        );
+
+        kafkaTemplate.send("inventory-rejected", event.orderId().toString(), rejectedEvent);
+    }
 }
