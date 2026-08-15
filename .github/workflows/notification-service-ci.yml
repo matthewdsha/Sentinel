@@ -21,7 +21,7 @@ jobs:
 
       - name: Make mvnw executable
         working-directory: ./notification-service
-        run: chmod -x mvnw
+        run: chmod +x mvnw
 
       - name: Run tests
         working-directory: ./notification-service

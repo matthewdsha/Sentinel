@@ -20,7 +20,7 @@ class InventoryServiceApplicationTests {
 			.withPassword("test_password");
 
 	@Container
-	static ConfluentKafkaContainer kafka = new ConfluentKafkaContainer("confluentinc/cp-kafka::7.7.1");
+	static ConfluentKafkaContainer kafka = new ConfluentKafkaContainer("confluentinc/cp-kafka:7.7.1");
 
 	@DynamicPropertySource
 	static void configureProperties(DynamicPropertyRegistry registry) {
