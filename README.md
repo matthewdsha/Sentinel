@@ -83,7 +83,7 @@ Database passwords aren't hardcoded anywhere. Each service's real credentials li
 
 ## Tech stack
 
-Java · Spring Boot · Spring Kafka · Apache Kafka · PostgreSQL · Redis · Docker · Kubernetes · GitHub Actions · Testcontainers
+Java · Spring Boot · Spring Kafka · Apache Kafka · PostgreSQL · Redis · Docker · Kubernetes · GitHub Actions · Testcontainers · JUnit · Mockito
 
 ---
 
