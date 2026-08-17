@@ -3,8 +3,12 @@ name: Gateway CI
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'gateway/**'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'gateway/**'
 
 jobs:
   test:

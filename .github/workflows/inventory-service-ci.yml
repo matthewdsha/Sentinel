@@ -3,8 +3,12 @@ name: Inventory Service CI
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'inventory-service/**'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'inventory-service/**'
 
 jobs:
   test:

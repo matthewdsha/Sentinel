@@ -3,8 +3,12 @@ name: Order Service CI
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'order-service/**'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'order-service/**'
 
 jobs:
   test:

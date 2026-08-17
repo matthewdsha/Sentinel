@@ -7,15 +7,15 @@ spring:
         webmvc:
           routes:
             - id: order-service
-              uri: http://order-service:8080
+              uri: ${ORDER_SERVICE_URL:http://order-service:8080}
               predicates:
                 - Path=/orders/**
             - id: inventory-service
-              uri: http://inventory-service:8080
+              uri: ${INVENTORY_SERVICE_URL:http://inventory-service:8080}
               predicates:
                 - Path=/inventory/**
             - id: notification-service
-              uri: http://notification-service:8080
+              uri: ${NOTIFICATION_SERVICE_URL:http://notification-service:8080}
               predicates:
                 - Path=/notifications/**
 

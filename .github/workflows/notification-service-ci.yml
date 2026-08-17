@@ -3,8 +3,12 @@ name: Notification Service CI
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'notification-service/**'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'notification-service/**'
 
 jobs:
   test:
